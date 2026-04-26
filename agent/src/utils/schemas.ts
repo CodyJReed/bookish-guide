@@ -20,3 +20,11 @@ export const OpenUrlOutputSchema = z.object({
   url: z.url(),
   content: z.string().min(1),
 });
+
+export const SummarizeInpuSchema = z.object({
+  text: z.string().min(50, " Addition text required to summarize."),
+});
+
+export const SummarizeOutpuSchema = z.object({
+  text: z.string().min(1),
+});
