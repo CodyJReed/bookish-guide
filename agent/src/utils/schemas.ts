@@ -10,4 +10,13 @@ export const WebSearchResultSchema = z.object({
 // Cap token usage by limiting return scope
 export const WebSearchResultsSchema = z.array(WebSearchResultSchema).max(10);
 
-export type WebSearchResult = z.infer<typeof WebSearchResultsSchema>
+export type WebSearchResult = z.infer<typeof WebSearchResultsSchema>;
+
+export const OpenUrlInputSchema = z.object({
+  url: z.url(),
+});
+
+export const OpenUrlOutputSchema = z.object({
+  url: z.url(),
+  content: z.string().min(1),
+});

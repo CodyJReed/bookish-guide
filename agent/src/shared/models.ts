@@ -32,5 +32,11 @@ export function getChatModel(opts: ModelOpts = {}): BaseChatModel {
         model: env.OPENAI_MODEL,
         temperature,
       });
+    case "ollama":
+      return new ChatOpenAI({
+        apiKey: env.OLLAMA_API_KEY,
+        model: env.OLLAMA_MODEL,
+        temperature,
+      });
   }
 }

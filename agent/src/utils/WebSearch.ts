@@ -1,6 +1,7 @@
 // scrap/search internet tool
 import { WebSearchResultSchema, WebSearchResultsSchema } from "./schemas";
 import { env } from "../shared/env";
+import { safeText } from ".";
 
 // provide user query
 export async function webSearch(q: string) {
@@ -50,12 +51,4 @@ async function searchTavilyUtil(query: string) {
   );
 
   return WebSearchResultsSchema.parse(formatted);
-}
-
-async function safeText(res: Response) {
-  try {
-    return await res.json();
-  } catch {
-    return "<no body>";
-  }
 }
