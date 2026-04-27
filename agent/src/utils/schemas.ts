@@ -26,7 +26,7 @@ export const SummarizeInpuSchema = z.object({
 });
 
 export const SummarizeOutpuSchema = z.object({
-  text: z.string().min(1),
+  summary: z.string().min(1),
 });
 
 export const SearchInputSchema = z.object({
