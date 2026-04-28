@@ -17,7 +17,7 @@ async function searchTavilyUtil(query: string) {
     throw new Error("TAVILY_API_KEY is missing.");
   }
 
-  const res = await fetch("https://api.travily.com/search", {
+  const res = await fetch("https://api.tavily.com/search", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${env.TAVILY_API_KEY}`,
