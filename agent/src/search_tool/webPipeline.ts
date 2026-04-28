@@ -26,9 +26,9 @@ export const webSearchStep = RunnableLambda.from(
 
 // Step 2 Take input results and...
 export const openAndSummarizeStep = RunnableLambda.from(
-  async (input: { q: string; mode: "web" | "direct"; results: any[] }) => {
+  async (input: { q: string; mode: "web" | "direct"; res: any[] }) => {
     // Check and return newly structured object in the event that "No Results" exist
-    if (!Array.isArray(input.results) || input.results.length === 0) {
+    if (!Array.isArray(input.res) || input.res.length === 0) {
       return {
         ...input,
         pageSummaries: [],
@@ -36,7 +36,7 @@ export const openAndSummarizeStep = RunnableLambda.from(
       };
     }
     // Else allocate the first 5 results
-    const extractTopResults = input.results.slice(0, setTopResults);
+    const extractTopResults = input.res.slice(0, setTopResults);
 
     //Open each result's target 'url' digest and summarize content
     const settlesResults = await Promise.allSettled(
