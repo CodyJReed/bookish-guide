@@ -3,7 +3,7 @@ import { candidate } from "./types";
 import { getChatModel } from "../shared/models";
 import { SystemMessage, HumanMessage } from "@langchain/core/messages";
 
-export const directPatch = RunnableLambda.from(
+export const directPath = RunnableLambda.from(
   async (input: { q: string; mode: "web" | "direct" }): Promise<candidate> => {
     const model = getChatModel({ temperature: 0.2 });
 
